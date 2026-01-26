@@ -1,0 +1,34 @@
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временные файлы редакторов
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Логи
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Зависимости (если будут добавлены)
+node_modules/
+vendor/
+
+# Кэш
+.cache/
+.parcel-cache/
+
+# Production build (если будет добавлена сборка)
+dist/
+build/
+
+# Переменные окружения
+.env
+.env.local
+.env.production
