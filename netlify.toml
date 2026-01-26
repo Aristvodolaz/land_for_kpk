@@ -1,0 +1,75 @@
+# ============================================
+# Конфигурация для Netlify
+# ============================================
+# 
+# Документация: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Команда сборки (не требуется для статики)
+  command = ""
+  
+  # Директория с готовыми файлами
+  publish = "."
+
+# ============================================
+# РЕДИРЕКТЫ И ПЕРЕЗАПИСИ
+# ============================================
+
+[[redirects]]
+  # Редирект с www на без www (или наоборот)
+  from = "https://www.yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true
+
+# ============================================
+# ЗАГОЛОВКИ
+# ============================================
+
+[[headers]]
+  # Применяется ко всем страницам
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  # Долгое кэширование для статических ресурсов
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ============================================
+# ПОЛЬЗОВАТЕЛЬСКИЕ СТРАНИЦЫ ОШИБОК
+# ============================================
+
+# Раскомментируйте и создайте файлы при необходимости
+# [[redirects]]
+#   from = "/404"
+#   to = "/404.html"
+#   status = 404
+
+# ============================================
+# ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ
+# ============================================
+
+[build.environment]
+  # Переменные окружения (если нужны)
+  # NODE_VERSION = "16"

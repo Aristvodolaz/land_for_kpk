@@ -181,10 +181,121 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
 
     const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formSuccess = document.getElementById('form-success');
+
+    // Валидация в реальном времени
+    const inputs = contactForm.querySelectorAll('.form__input, .form__textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+
+        input.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                validateField(this);
+            }
+        });
+    });
+
+    // Функция валидации поля
+    function validateField(field) {
+        const errorSpan = document.querySelector(`[data-error-for="${field.id}"]`);
+        let errorMessage = '';
+
+        // Проверка на пустое обязательное поле
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            errorMessage = 'Это поле обязательно для заполнения';
+        }
+        // Проверка минимальной длины
+        else if (field.hasAttribute('minlength')) {
+            const minLength = field.getAttribute('minlength');
+            if (field.value.length < minLength && field.value.length > 0) {
+                errorMessage = `Минимум ${minLength} символов`;
+            }
+        }
+        // Проверка email
+        else if (field.type === 'email' && field.value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(field.value)) {
+                errorMessage = 'Введите корректный email';
+            }
+        }
+        // Проверка телефона
+        else if (field.type === 'tel' && field.value) {
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+            if (!phoneRegex.test(field.value)) {
+                errorMessage = 'Введите корректный номер телефона';
+            }
+        }
+
+        // Отображение ошибки
+        if (errorMessage) {
+            field.classList.add('error');
+            field.classList.remove('success');
+            if (errorSpan) {
+                errorSpan.textContent = errorMessage;
+                errorSpan.classList.add('visible');
+            }
+            return false;
+        } else if (field.value) {
+            field.classList.remove('error');
+            field.classList.add('success');
+            if (errorSpan) {
+                errorSpan.classList.remove('visible');
+            }
+            return true;
+        } else {
+            field.classList.remove('error', 'success');
+            if (errorSpan) {
+                errorSpan.classList.remove('visible');
+            }
+            return true;
+        }
+    }
+
+    // Глобальная функция для сброса формы (вызывается из HTML)
+    window.resetForm = function() {
+        contactForm.style.display = 'flex';
+        formSuccess.style.display = 'none';
+        contactForm.reset();
+        
+        // Убираем классы валидации
+        inputs.forEach(input => {
+            input.classList.remove('error', 'success');
+        });
+        
+        closeModal();
+    };
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            // Валидация всех полей
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                }
+            });
+
+            // Проверка чекбокса согласия
+            const agreementCheckbox = document.getElementById('agreement');
+            const agreementError = document.querySelector('[data-error-for="agreement"]');
+            
+            if (!agreementCheckbox.checked) {
+                agreementError.textContent = 'Необходимо согласие на обработку данных';
+                agreementError.classList.add('visible');
+                isValid = false;
+            } else {
+                agreementError.classList.remove('visible');
+            }
+
+            if (!isValid) {
+                return;
+            }
 
             // Получаем данные формы
             const formData = new FormData(contactForm);
@@ -195,41 +306,78 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: formData.get('message')
             };
 
+            // Показываем индикатор загрузки
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
             // Вывод данных в консоль (для отладки)
             console.log('Отправка формы:', data);
 
             // ЗДЕСЬ ДОБАВЬТЕ СВОЮ ЛОГИКУ ОТПРАВКИ:
-            // - Отправка на backend (fetch/axios)
-            // - Отправка через сервис (Formspree, Google Forms API)
-            // - Отправка на email через PHP
+            // Раскомментируйте нужный блок и настройте под свой backend
 
-            // Пример с fetch (замените URL на ваш):
+            // === ВАРИАНТ 1: Formspree ===
             /*
-            fetch('https://your-backend.com/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Успех:', result);
-                alert('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
-                closeModal();
-                contactForm.reset();
-            })
-            .catch(error => {
+            try {
+                const response = await fetch('https://formspree.io/f/ВАША_ФОРМА_ID', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showSuccessMessage();
+                } else {
+                    throw new Error('Ошибка отправки');
+                }
+            } catch (error) {
                 console.error('Ошибка:', error);
                 alert('Произошла ошибка при отправке. Попробуйте позже.');
-            });
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
             */
 
-            // Временное решение (для демо):
-            alert('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
-            closeModal();
-            contactForm.reset();
+            // === ВАРИАНТ 2: Свой backend ===
+            /*
+            try {
+                const response = await fetch('send-mail.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showSuccessMessage();
+                } else {
+                    throw new Error(result.error || 'Ошибка отправки');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при отправке. Попробуйте позже.');
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+            */
+
+            // === ВРЕМЕННОЕ РЕШЕНИЕ (для демо) ===
+            // Имитация отправки с задержкой
+            setTimeout(() => {
+                showSuccessMessage();
+            }, 1500);
         });
+    }
+
+    // Показ сообщения об успехе
+    function showSuccessMessage() {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        
+        contactForm.style.display = 'none';
+        formSuccess.style.display = 'block';
     }
 
     // ============================================

@@ -1,0 +1,158 @@
+# ============================================
+# .htaccess для Apache
+# Конфигурация для оптимальной работы лендинга
+# ============================================
+
+# Включение модуля перезаписи URL
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Редирект с www на без www (или наоборот)
+    # Раскомментируйте нужный вариант:
+    
+    # Вариант 1: без www
+    # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    # Вариант 2: с www
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # Принудительный HTTPS (раскомментируйте для продакшена)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# ============================================
+# КЭШИРОВАНИЕ
+# ============================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Изображения
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS и JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    
+    # Шрифты
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # HTML (короткое время для частых обновлений)
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ============================================
+# СЖАТИЕ GZIP
+# ============================================
+
+<IfModule mod_deflate.c>
+    # Сжатие HTML, CSS, JavaScript, JSON, XML
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ============================================
+# БЕЗОПАСНОСТЬ
+# ============================================
+
+# Отключение листинга директорий
+Options -Indexes
+
+# Защита от XSS
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (настройте под свои нужды)
+    # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# Защита файлов конфигурации
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Блокировка доступа к чувствительным файлам
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# ============================================
+# НАСТРОЙКИ PHP (если используется)
+# ============================================
+
+<IfModule mod_php7.c>
+    # Отключение отображения ошибок (для продакшена)
+    php_flag display_errors Off
+    
+    # Лимиты загрузки (для форм с файлами)
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 60
+</IfModule>
+
+# ============================================
+# MIME-ТИПЫ
+# ============================================
+
+<IfModule mod_mime.c>
+    AddType application/javascript js
+    AddType text/css css
+    AddType image/svg+xml svg svgz
+    AddType font/woff woff
+    AddType font/woff2 woff2
+</IfModule>
+
+# ============================================
+# ПОЛЬЗОВАТЕЛЬСКИЕ СТРАНИЦЫ ОШИБОК
+# ============================================
+
+# Раскомментируйте и создайте файлы ошибок при необходимости
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html
+
+# ============================================
+# ПРОИЗВОДИТЕЛЬНОСТЬ
+# ============================================
+
+# Включение Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# ============================================
+# ДОПОЛНИТЕЛЬНО
+# ============================================
+
+# Кодировка UTF-8 по умолчанию
+AddDefaultCharset UTF-8
+
+# Отключение ETag
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
