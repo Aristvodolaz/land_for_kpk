@@ -3,50 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Онлайн-курс повышения квалификации для педагогов Красноярского края. Удобный формат, практическая польза, официальное удостоверение.">
-    <title>Повышение квалификации для педагогов — Онлайн-курс КПК</title>
+    <meta name="description" content="Онлайн-курсы повышения квалификации для учителей физики, химии, биологии и математики. Официальная программа, удобный формат, практическая польза.">
+    <title>Повышение квалификации для педагогов — Онлайн-курсы КПК</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ваш-домен.ru/">
-    <meta property="og:title" content="Повышение квалификации для педагогов — Онлайн-курс КПК">
-    <meta property="og:description" content="Онлайн-курс повышения квалификации без перегрузки. Официальная программа, удобный формат, практическая польза.">
+    <meta property="og:title" content="Повышение квалификации для педагогов — Онлайн-курсы КПК">
+    <meta property="og:description" content="Курсы для учителей физики, химии, биологии и математики. Онлайн-формат, 24 ак.часа, удостоверение.">
     <meta property="og:image" content="https://ваш-домен.ru/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ваш-домен.ru/">
-    <meta property="twitter:title" content="Повышение квалификации для педагогов — Онлайн-курс КПК">
-    <meta property="twitter:description" content="Онлайн-курс повышения квалификации без перегрузки. Официальная программа, удобный формат, практическая польза.">
+    <meta property="twitter:title" content="Повышение квалификации для педагогов">
+    <meta property="twitter:description" content="Курсы для учителей физики, химии, биологии и математики.">
     <meta property="twitter:image" content="https://ваш-домен.ru/images/og-image.jpg">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- HEADER С НАВИГАЦИЕЙ -->
+    <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
             <div class="header__wrapper">
-                <!-- Логотип/Название -->
                 <div class="header__logo">
                     <a href="#hero">КПК для педагогов</a>
                 </div>
 
-                <!-- Навигация (desktop) -->
                 <nav class="header__nav" id="nav">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#why-convenient" class="nav__link">Преимущества</a></li>
-                        <li class="nav__item"><a href="#program" class="nav__link">Программа</a></li>
-                        <li class="nav__item"><a href="#speakers" class="nav__link">Спикеры</a></li>
+                        <li class="nav__item nav__item--dropdown">
+                            <a href="#courses" class="nav__link">Курсы ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="physics.html" class="dropdown__link">Физика</a></li>
+                                <li><a href="chemistry.html" class="dropdown__link">Химия</a></li>
+                                <li><a href="biology.html" class="dropdown__link">Биология</a></li>
+                                <li><a href="mathematics.html" class="dropdown__link">Математика</a></li>
+                            </ul>
+                        </li>
                         <li class="nav__item"><a href="#testimonials" class="nav__link">Отзывы</a></li>
                     </ul>
                     <button class="btn btn--primary btn--small" data-modal-trigger>Записаться</button>
                 </nav>
 
-                <!-- Бургер-меню (mobile) -->
                 <button class="header__burger" id="burger" aria-label="Открыть меню">
                     <span></span>
                     <span></span>
@@ -56,12 +61,12 @@
         </div>
     </header>
 
-    <!-- HERO-БЛОК -->
+    <!-- HERO -->
     <section id="hero" class="hero">
         <div class="container">
             <h1 class="hero__title">Повышение квалификации без перегрузки</h1>
-            <p class="hero__subtitle">Онлайн-курс, который помогает выполнить требования и упростить повседневную работу учителя.</p>
-            <a href="#program" class="btn btn--primary">Перейти к программе курса</a>
+            <p class="hero__subtitle">Курсы для учителей физики, химии, биологии и математики. Онлайн-формат с поддержкой на всех этапах.</p>
+            <a href="#courses" class="btn btn--primary">Выбрать курс</a>
             <p class="hero__note">Официальная программа повышения квалификации. Полностью дистанционный формат.</p>
         </div>
     </section>
@@ -170,430 +175,108 @@
         </div>
     </section>
 
-    <!-- БЛОК «ПРОГРАММА КУРСА» -->
-    <section id="program" class="section program">
+    <!-- БЛОК «КУРСЫ ПО ПРЕДМЕТАМ» -->
+    <section id="courses" class="section courses">
         <div class="container">
-            <h2 class="section__title">Программа курса</h2>
-            <p class="section__subtitle">Курс состоит из трёх модулей. Каждый модуль ориентирован на практику и повседневную работу учителя.</p>
+            <h2 class="section__title">Выберите курс по вашему предмету</h2>
+            <p class="section__subtitle">Курсы повышения квалификации по физике, химии, биологии и математике. Каждый курс содержит три модуля по 24 академических часа.</p>
             
-            <div class="modules">
-                <!-- Модуль 1 -->
-                <div class="module-card">
-                    <div class="module-card__header">
-                        <span class="module-card__number">Модуль 1</span>
-                        <h3 class="module-card__title">Современные подходы к организации учебного процесса</h3>
+            <div class="courses-grid">
+                <!-- Курс по физике -->
+                <a href="physics.html" class="course-card">
+                    <div class="course-card__icon">⚛️</div>
+                    <h3 class="course-card__title">Физика</h3>
+                    <p class="course-card__description">Олимпиадная подготовка, ЕГЭ и углубленное преподавание физики.</p>
+                    <ul class="course-card__modules">
+                        <li>Олимпиадная подготовка</li>
+                        <li>Актуальные вопросы ЕГЭ</li>
+                        <li>Углубленное преподавание</li>
+                    </ul>
+                    <div class="course-card__meta">
+                        <span class="meta-badge">3 модуля</span>
+                        <span class="meta-badge">72 ак.часа</span>
                     </div>
-                    <p class="module-card__description">Изучаем актуальные методы работы с классом, которые помогают удерживать внимание учеников и снижать дисциплинарные сложности.</p>
-                    <div class="module-card__result">
-                        <strong>В результате вы сможете:</strong>
-                        <p>Применять на практике техники вовлечения учеников, адаптировать материал под разный уровень подготовки и использовать готовые сценарии уроков.</p>
-                    </div>
-                </div>
+                    <span class="course-card__link">Подробнее →</span>
+                </a>
 
-                <!-- Модуль 2 -->
-                <div class="module-card">
-                    <div class="module-card__header">
-                        <span class="module-card__number">Модуль 2</span>
-                        <h3 class="module-card__title">Цифровые инструменты в работе учителя</h3>
+                <!-- Курс по химии -->
+                <a href="chemistry.html" class="course-card">
+                    <div class="course-card__icon">🧪</div>
+                    <h3 class="course-card__title">Химия</h3>
+                    <p class="course-card__description">Олимпиадная подготовка, ЕГЭ и углубленное преподавание химии.</p>
+                    <ul class="course-card__modules">
+                        <li>Олимпиадная подготовка</li>
+                        <li>Актуальные вопросы ЕГЭ</li>
+                        <li>Углубленное преподавание</li>
+                    </ul>
+                    <div class="course-card__meta">
+                        <span class="meta-badge">3 модуля</span>
+                        <span class="meta-badge">72 ак.часа</span>
                     </div>
-                    <p class="module-card__description">Разбираем простые и доступные сервисы, которые экономят время на подготовке материалов и проверке работ.</p>
-                    <div class="module-card__result">
-                        <strong>В результате вы сможете:</strong>
-                        <p>Создавать интерактивные задания, автоматизировать рутинные процессы и использовать онлайн-платформы для обратной связи с учениками.</p>
-                    </div>
-                </div>
+                    <span class="course-card__link">Подробнее →</span>
+                </a>
 
-                <!-- Модуль 3 -->
-                <div class="module-card">
-                    <div class="module-card__header">
-                        <span class="module-card__number">Модуль 3</span>
-                        <h3 class="module-card__title">Работа с документацией и требованиями ФГОС</h3>
+                <!-- Курс по биологии -->
+                <a href="biology.html" class="course-card">
+                    <div class="course-card__icon">🧬</div>
+                    <h3 class="course-card__title">Биология</h3>
+                    <p class="course-card__description">Олимпиадная подготовка, ЕГЭ и углубленное преподавание биологии.</p>
+                    <ul class="course-card__modules">
+                        <li>Олимпиадная подготовка</li>
+                        <li>Актуальные вопросы ЕГЭ</li>
+                        <li>Углубленное преподавание</li>
+                    </ul>
+                    <div class="course-card__meta">
+                        <span class="meta-badge">3 модуля</span>
+                        <span class="meta-badge">72 ак.часа</span>
                     </div>
-                    <p class="module-card__description">Учимся быстро оформлять необходимые документы и соответствовать стандартам без лишних временных затрат.</p>
-                    <div class="module-card__result">
-                        <strong>В результате вы сможете:</strong>
-                        <p>Использовать готовые шаблоны рабочих программ, быстро составлять отчёты и уверенно ориентироваться в требованиях образовательных стандартов.</p>
+                    <span class="course-card__link">Подробнее →</span>
+                </a>
+
+                <!-- Курс по математике -->
+                <a href="mathematics.html" class="course-card">
+                    <div class="course-card__icon">📐</div>
+                    <h3 class="course-card__title">Математика</h3>
+                    <p class="course-card__description">Олимпиадная подготовка, ЕГЭ и углубленное преподавание математики.</p>
+                    <ul class="course-card__modules">
+                        <li>Олимпиадная подготовка</li>
+                        <li>Актуальные вопросы ЕГЭ</li>
+                        <li>Углубленное преподавание</li>
+                    </ul>
+                    <div class="course-card__meta">
+                        <span class="meta-badge">3 модуля</span>
+                        <span class="meta-badge">72 ак.часа</span>
                     </div>
-                </div>
+                    <span class="course-card__link">Подробнее →</span>
+                </a>
+            </div>
+
+            <div class="courses-note">
+                <p><strong>Каждый модуль:</strong> 24 академических часа, онлайн-формат, удостоверение установленного образца</p>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК «СПИКЕРЫ КУРСА» -->
-    <section id="speakers" class="section speakers">
+    <!-- БЛОК «ЭКСПЕРТИЗА» -->
+    <section id="expertise" class="section expertise">
         <div class="container">
-            <h2 class="section__title">Преподаватели курсов</h2>
-            <p class="section__subtitle">Ведущие методисты и эксперты в области преподавания естественно-научных дисциплин и математики.</p>
-            
-            <!-- КУРСЫ ПО ФИЗИКЕ -->
-            <div class="course-block">
-                <h3 class="course-block__title">Курсы повышения квалификации для учителей физики</h3>
-                
-                <!-- Модуль 1: Олимпиадная подготовка по физике -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Олимпиадная подготовка по физике <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Валерия Валерьевна Черникова">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Валерия Валерьевна Черникова</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Главный тренер сборной Москвы по физике, заместитель председателя оргкомитета Московской олимпиады школьников (МОШ) по физике, член Городской предметно-методической комиссии (ГПМК) ВсОШ по физике в Москве.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Юрий Александрович Черников">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Юрий Александрович Черников</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Тренер сборной Москвы по физике, преподаватель ОЦ «Сириус», председатель предметно-методической комиссии Международной олимпиады по экспериментальной физике (IEPhO).</p>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="section__title">Курсы ведут ведущие эксперты</h2>
+            <p class="expertise__text">Программы разработаны и проводятся ведущими методистами ГАОУ ДПО ЦПМ, тренерами сборных команд, членами жюри Всероссийской олимпиады школьников и разработчиками КИМ ЕГЭ.</p>
+            <div class="expertise-stats">
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <p class="stat-label">Опытных преподавателей</p>
                 </div>
-
-                <!-- Модуль 2: Подготовка к ЕГЭ по физике -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Актуальные вопросы подготовки к ЕГЭ по физике <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Андрей Юрьевич Хотунцев">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Андрей Юрьевич Хотунцев</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Старший методист ГАОУ ДПО ЦПМ, учитель высшей категории классов физико-математического профиля в Школе № 1535.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Антон Иосифович Гиголо">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Антон Иосифович Гиголо</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Учитель физики в Школе № 1522, член Федеральной комиссии разработчиков ЕГЭ по физике, ведущий эксперт ЕГЭ.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Сергей Александрович Горбушин">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Сергей Александрович Горбушин</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Учитель физики в Школе № 1514, автор учебных изданий и курсов по физике.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Наталия Александровна Федькушева">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Наталия Александровна Федькушева</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Учитель физики высшей квалификационной категории в Школе «Дмитровский», ведущий эксперт ЕГЭ.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <p class="stat-label">Модулей обучения</p>
                 </div>
-
-                <!-- Модуль 3: Углубленное преподавание физики -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Методики преподавания физики на углубленном уровне <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Андрей Юрьевич Хотунцев">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Андрей Юрьевич Хотунцев</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Старший методист ГАОУ ДПО ЦПМ, учитель высшей категории классов физико-математического профиля в Школе № 1535.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Лариса Ефимовна Капустина">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Лариса Ефимовна Капустина</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Учитель физики в Школе № 1551, эксперт Московского центра качества образования.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Сергей Александрович Горбушин">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Сергей Александрович Горбушин</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Учитель физики в Школе № 1514, автор методических пособий и курсов по физике.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <p class="stat-label">Предметных направления</p>
                 </div>
             </div>
-
-            <!-- КУРСЫ ПО ХИМИИ -->
-            <div class="course-block">
-                <h3 class="course-block__title">Курсы повышения квалификации для учителей химии</h3>
-                
-                <!-- Олимпиадная подготовка по химии -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Олимпиадная подготовка по химии <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Никита Сергеевич Крысанов">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Никита Сергеевич Крысанов</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Руководитель кафедры химии отдела развития таланта школьников ГАОУ ДПО ЦПМ, член жюри заключительного этапа ВсОШ по химии.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Александр Сергеевич Белов">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Александр Сергеевич Белов</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Главный тренер сборной Москвы по химии, тренер национальной сборной России по химии.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Сергей Николаевич Яшкин">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Сергей Николаевич Яшкин</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Главный тренер сборной Самарской области, член жюри заключительного этапа ВсОШ по химии, член Центральной предметно-методической комиссии ВсОШ по химии.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Подготовка к ЕГЭ по химии -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Актуальные вопросы подготовки к ЕГЭ по химии <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Людмила Ивановна Пашкова">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Людмила Ивановна Пашкова</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Кандидат химических наук, старший методист ГАОУ ДПО ЦПМ, автор пособий Издательства «Интеллект-Центр».</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Виолетта Сергеевна Веремьёва">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Виолетта Сергеевна Веремьёва</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Учитель химии Школы № 1535, ведущий эксперт предметной комиссии ГИА-11.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Углубленное преподавание химии -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Методики преподавания химии на углубленном уровне <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Никита Сергеевич Крысанов">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Никита Сергеевич Крысанов</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Руководитель кафедры химии отдела развития таланта школьников ГАОУ ДПО ЦПМ, член жюри заключительного этапа ВсОШ по химии.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Андрей Анатольевич Дроздов">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Андрей Анатольевич Дроздов</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Кандидат химических наук, доцент химического факультета МГУ имени М. В. Ломоносова, автор учебных изданий по химии.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Алексей Михайлович Лунёв">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Алексей Михайлович Лунёв</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Кандидат химических наук, старший преподаватель факультета химии ВШЭ, руководитель кафедры химии в Школе ЦПМ.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- КУРСЫ ПО БИОЛОГИИ -->
-            <div class="course-block">
-                <h3 class="course-block__title">Курсы повышения квалификации для учителей биологии</h3>
-                
-                <!-- Олимпиадная подготовка по биологии -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Олимпиадная подготовка по биологии <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Дмитрий Александрович Федоров">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Дмитрий Александрович Федоров</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Национальный тренер сборной России на международной олимпиаде по биологии, заместитель председателя ЦПМК ВсОШ по биологии, член федеральной комиссии разработчиков КИМ ГИА по биологии, преподаватель ОЦ «Сириус», аспирант Сколковского Института Науки и Технологий.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Алина Рамильевна Ильева">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Алина Рамильевна Ильева</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Член ЦПМК и член жюри заключительного этапа ВсОШ по биологии, преподаватель и руководитель программ ОЦ «Сириус», методист образовательного центра «Взлёт».</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Артем Андреевич Прохоров">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Артем Андреевич Прохоров</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Член ЦПМК и член жюри заключительного этапа ВсОШ по биологии, аспирант Главного ботанического сада РАН им. Н.В. Цицина, преподаватель ОЦ «Сириус».</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Яна Алексеевна Воронина">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Яна Алексеевна Воронина</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Кандидат биологических наук, член ЦПМК и член жюри заключительного этапа ВсОШ по биологии, ассистент кафедры физиологии человека и животных биологического факультета МГУ им. М.В. Ломоносова, научный сотрудник Кардиоцентра им. ак. Е.И. Чазова, преподаватель ОЦ «Сириус».</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Подготовка к ЕГЭ по биологии -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Актуальные вопросы подготовки к ЕГЭ по биологии <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Елена Владимировна Сысолятина">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Елена Владимировна Сысолятина</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Кандидат биологических наук, ведущий научный сотрудник и учёный секретарь Национального исследовательского центра эпидемиологии и микробиологии им. Н.Ф. Гамалеи.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Татьяна Вячеславовна Мазяркина">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Татьяна Вячеславовна Мазяркина</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Кандидат сельскохозяйственных наук, доцент кафедры биохимии, молекулярной биологии и генетики Института биологии и химии МПГУ.</p>
-                            </div>
-                        </div>
-
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Вениамин Борисович Саленко">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Вениамин Борисович Саленко</h5>
-                                <p class="speaker-compact__role">Приглашённый лектор</p>
-                                <p class="speaker-compact__bio">Кандидат биологических наук, преподаватель биологии в лицее НИУ ВШЭ.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- КУРСЫ ПО МАТЕМАТИКЕ -->
-            <div class="course-block">
-                <h3 class="course-block__title">Курсы повышения квалификации для учителей математики</h3>
-                
-                <!-- Олимпиадная подготовка по математике -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Олимпиадная подготовка по математике <span class="course-hours">(24 ак.часа)</span></h4>
-                    
-                    <div class="speakers-row">
-                        <div class="speaker-compact">
-                            <div class="speaker-compact__photo">
-                                <img src="images/speakers/placeholder.svg" alt="Иван Валериевич Ященко">
-                            </div>
-                            <div class="speaker-compact__info">
-                                <h5 class="speaker-compact__name">Иван Валериевич Ященко</h5>
-                                <p class="speaker-compact__role">Методист</p>
-                                <p class="speaker-compact__bio">Кандидат физико-математических наук, научный руководитель ГАОУ ДПО ЦПМ, директор Московского центра непрерывного математического образования, руководитель комиссии по разработке КИМ ГИА по математике.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Подготовка к ЕГЭ по математике -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Актуальные вопросы подготовки к ЕГЭ по математике <span class="course-hours">(24 ак.часа)</span></h4>
-                    <p class="course-module__note">Информация о преподавателях уточняется</p>
-                </div>
-
-                <!-- Углубленное преподавание математики -->
-                <div class="course-module">
-                    <h4 class="course-module__name">Методики преподавания математики на углубленном уровне <span class="course-hours">(24 ак.часа)</span></h4>
-                    <p class="course-module__note">Информация о преподавателях уточняется</p>
-                </div>
-            </div>
+            <a href="#courses" class="btn btn--secondary">Выбрать курс</a>
         </div>
     </section>
 
@@ -650,11 +333,11 @@
     <section id="final-cta" class="section final-cta">
         <div class="container">
             <h2 class="final-cta__title">Пройти повышение квалификации спокойно и без стресса</h2>
-            <a href="#program" class="btn btn--primary btn--large">Перейти к программе курса</a>
+            <a href="#courses" class="btn btn--primary btn--large">Выбрать курс</a>
         </div>
     </section>
 
-    <!-- ПОДВАЛ -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <p class="footer__text">© 2026 Онлайн-курс повышения квалификации для педагогов Красноярского края</p>
@@ -662,62 +345,47 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО С ФОРМОЙ -->
+    <!-- МОДАЛЬНОЕ ОКНО -->
     <div id="modal" class="modal">
         <div class="modal__overlay"></div>
         <div class="modal__content">
             <button class="modal__close" aria-label="Закрыть">&times;</button>
-            <h2 class="modal__title">Задать вопрос</h2>
-            <p class="modal__subtitle">Мы ответим в течение рабочего дня</p>
+            <h2 class="modal__title">Записаться на курс</h2>
+            <p class="modal__subtitle">Мы свяжемся с вами в течение рабочего дня</p>
             
             <form id="contact-form" class="form">
                 <div class="form__group">
                     <label for="name" class="form__label">Ваше имя <span class="required">*</span></label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        class="form__input" 
-                        required
-                        minlength="2"
-                        placeholder="Иван Иванов">
+                    <input type="text" id="name" name="name" class="form__input" required minlength="2" placeholder="Иван Иванов">
                     <span class="form__error" data-error-for="name"></span>
                 </div>
                 
                 <div class="form__group">
                     <label for="email" class="form__label">Email <span class="required">*</span></label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        class="form__input" 
-                        required
-                        placeholder="example@mail.ru">
+                    <input type="email" id="email" name="email" class="form__input" required placeholder="example@mail.ru">
                     <span class="form__error" data-error-for="email"></span>
                 </div>
                 
                 <div class="form__group">
                     <label for="phone" class="form__label">Телефон</label>
-                    <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        class="form__input"
-                        placeholder="+7 (900) 123-45-67"
-                        pattern="[\+]?[0-9\s\-\(\)]*">
+                    <input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (900) 123-45-67" pattern="[\+]?[0-9\s\-\(\)]*">
                     <span class="form__error" data-error-for="phone"></span>
+                </div>
+
+                <div class="form__group">
+                    <label for="subject" class="form__label">Интересующий предмет</label>
+                    <select id="subject" name="subject" class="form__input">
+                        <option value="">Выберите предмет</option>
+                        <option value="physics">Физика</option>
+                        <option value="chemistry">Химия</option>
+                        <option value="biology">Биология</option>
+                        <option value="mathematics">Математика</option>
+                    </select>
                 </div>
                 
                 <div class="form__group">
-                    <label for="message" class="form__label">Ваш вопрос <span class="required">*</span></label>
-                    <textarea 
-                        id="message" 
-                        name="message" 
-                        class="form__textarea" 
-                        rows="5" 
-                        required
-                        minlength="10"
-                        placeholder="Опишите ваш вопрос..."></textarea>
+                    <label for="message" class="form__label">Ваш вопрос</label>
+                    <textarea id="message" name="message" class="form__textarea" rows="4" placeholder="Опишите ваш вопрос..."></textarea>
                     <span class="form__error" data-error-for="message"></span>
                 </div>
 
@@ -742,11 +410,10 @@
                 </button>
             </form>
 
-            <!-- Сообщение об успехе -->
             <div class="form__success" id="form-success" style="display: none;">
                 <div class="success-icon">✓</div>
                 <h3>Спасибо за обращение!</h3>
-                <p>Мы получили ваше сообщение и свяжемся с вами в ближайшее время.</p>
+                <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
                 <button class="btn btn--secondary" onclick="resetForm()">Закрыть</button>
             </div>
         </div>

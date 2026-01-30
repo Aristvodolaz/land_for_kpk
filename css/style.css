@@ -117,6 +117,56 @@ a {
     font-size: 0.9375rem;
 }
 
+/* Выпадающее меню */
+.nav__item--dropdown {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 12px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.nav__item--dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li {
+    margin: 0;
+}
+
+.dropdown__link {
+    display: block;
+    padding: 10px 20px;
+    font-size: 0.9375rem;
+    color: #21201F;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown__link:hover {
+    background-color: #F3F0EB;
+    color: #3FA9F5;
+}
+
+.dropdown__link.active {
+    background-color: #3FA9F5;
+    color: #ffffff;
+}
+
 /* Бургер-меню */
 .header__burger {
     display: none;
@@ -244,6 +294,26 @@ p {
 }
 
 /* ============================================
+   BREADCRUMBS
+   ============================================ */
+
+.breadcrumbs {
+    font-size: 0.875rem;
+    color: #21201F;
+    opacity: 0.7;
+    margin-bottom: 24px;
+}
+
+.breadcrumbs a {
+    color: #3FA9F5;
+    transition: opacity 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    opacity: 0.8;
+}
+
+/* ============================================
    HERO-БЛОК
    ============================================ */
 
@@ -251,6 +321,38 @@ p {
     background: linear-gradient(135deg, #F3F0EB 0%, #e8e3db 100%);
     padding: 120px 0 100px;
     text-align: center;
+}
+
+.hero--subject {
+    padding: 100px 0 80px;
+    text-align: left;
+}
+
+.hero--subject .hero__title {
+    max-width: 900px;
+}
+
+.hero--subject .hero__subtitle {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 0 32px 0;
+}
+
+.hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    font-size: 0.9375rem;
+    color: #21201F;
 }
 
 .hero__title {
@@ -422,6 +524,164 @@ p {
 }
 
 /* ============================================
+   БЛОК «КУРСЫ ПО ПРЕДМЕТАМ»
+   ============================================ */
+
+.courses {
+    background-color: #F3F0EB;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.course-card {
+    display: block;
+    background-color: #ffffff;
+    padding: 40px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: #3FA9F5;
+}
+
+.course-card__icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.course-card__title {
+    font-size: 1.75rem;
+    color: #21201F;
+    margin-bottom: 16px;
+}
+
+.course-card__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #21201F;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+.course-card__modules {
+    list-style: none;
+    margin-bottom: 24px;
+    padding: 0;
+}
+
+.course-card__modules li {
+    padding: 8px 0;
+    font-size: 0.9375rem;
+    color: #21201F;
+    border-bottom: 1px solid #e0dcd5;
+}
+
+.course-card__modules li:last-child {
+    border-bottom: none;
+}
+
+.course-card__modules li::before {
+    content: '→';
+    color: #3FA9F5;
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.course-card__meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.meta-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #F3F0EB;
+    color: #21201F;
+    font-size: 0.875rem;
+    border-radius: 16px;
+    font-weight: 500;
+}
+
+.course-card__link {
+    color: #FF632C;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    transition: gap 0.3s ease;
+}
+
+.course-card:hover .course-card__link {
+    gap: 8px;
+}
+
+.courses-note {
+    text-align: center;
+    padding: 32px;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+.courses-note p {
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+/* ============================================
+   БЛОК «ЭКСПЕРТИЗА»
+   ============================================ */
+
+.expertise {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.expertise__text {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.expertise-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.stat-item {
+    padding: 32px 20px;
+    background-color: #F3F0EB;
+    border-radius: 12px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #3FA9F5;
+    margin-bottom: 12px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #21201F;
+    opacity: 0.85;
+}
+
+/* ============================================
    БЛОК «ДОКУМЕНТЫ ПО ИТОГАМ»
    ============================================ */
 
@@ -527,6 +787,137 @@ p {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 0;
+}
+
+/* ============================================
+   ДЕТАЛЬНЫЕ МОДУЛИ (для страниц предметов)
+   ============================================ */
+
+.module-detailed {
+    background-color: #ffffff;
+    padding: 48px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    border-left: 5px solid #3FA9F5;
+}
+
+.module-detailed__header {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #F3F0EB;
+}
+
+.module-detailed__number {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #3FA9F5;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.module-detailed__title {
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+    color: #21201F;
+}
+
+.module-detailed__hours {
+    font-size: 1rem;
+    color: #21201F;
+    opacity: 0.7;
+}
+
+.module-detailed__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.module-section h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #21201F;
+    margin-bottom: 16px;
+}
+
+.module-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.module-section ul li {
+    padding-left: 28px;
+    position: relative;
+    line-height: 1.7;
+}
+
+.module-section ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #3FA9F5;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.module-section ul li strong {
+    color: #21201F;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.result-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.result-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.result-item p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* CTA блок после программы */
+.cta-block {
+    text-align: center;
+    padding: 48px 32px;
+    background: linear-gradient(135deg, #3FA9F5 0%, #2a8fd6 100%);
+    border-radius: 12px;
+    margin-top: 48px;
+}
+
+.cta-block__text {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ============================================
@@ -1120,6 +1511,22 @@ p {
         margin-top: 16px;
     }
 
+    /* Выпадающее меню на планшетах */
+    .nav__item--dropdown:hover .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding: 12px 0 12px 20px;
+        background-color: transparent;
+    }
+
+    .dropdown__link {
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+
     h1 {
         font-size: 2rem; /* 32px */
     }
@@ -1150,6 +1557,53 @@ p {
 
     .section {
         padding: 60px 0;
+    }
+
+    /* Карточки курсов на планшетах */
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .course-card {
+        padding: 32px 24px;
+    }
+
+    /* Детальные модули на планшетах */
+    .module-detailed {
+        padding: 32px;
+    }
+
+    .module-detailed__title {
+        font-size: 1.5rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Блок экспертизы на планшетах */
+    .expertise-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 24px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    /* Hero subject на планшетах */
+    .hero--subject {
+        padding: 80px 0 60px;
+    }
+
+    .hero__meta {
+        gap: 12px;
+    }
+
+    .meta-item {
+        font-size: 0.875rem;
+        padding: 6px 12px;
     }
 
     .features-grid,
@@ -1287,5 +1741,73 @@ p {
 
     .speaker-compact__bio {
         font-size: 0.875rem;
+    }
+
+    /* Карточки курсов на мобильных */
+    .course-card {
+        padding: 28px 20px;
+    }
+
+    .course-card__icon {
+        font-size: 2.5rem;
+    }
+
+    .course-card__title {
+        font-size: 1.375rem;
+    }
+
+    /* Детальные модули на мобильных */
+    .module-detailed {
+        padding: 24px;
+    }
+
+    .module-detailed__title {
+        font-size: 1.25rem;
+    }
+
+    .module-section h4 {
+        font-size: 1rem;
+    }
+
+    .module-section ul li {
+        font-size: 0.9375rem;
+        padding-left: 24px;
+    }
+
+    /* Блок экспертизы на мобильных */
+    .expertise-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-item {
+        padding: 24px 16px;
+    }
+
+    /* Hero subject на мобильных */
+    .hero--subject {
+        padding: 60px 0 40px;
+    }
+
+    .hero__meta {
+        gap: 8px;
+    }
+
+    .meta-item {
+        font-size: 0.8125rem;
+        padding: 4px 10px;
+    }
+
+    /* CTA блок на мобильных */
+    .cta-block {
+        padding: 32px 20px;
+    }
+
+    .cta-block__text {
+        font-size: 1.125rem;
     }
 }
