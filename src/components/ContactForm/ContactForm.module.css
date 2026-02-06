@@ -1,0 +1,139 @@
+.form {
+  padding: var(--spacing-xl);
+}
+
+.formTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+.formSubtitle {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-lg);
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.required {
+  color: var(--color-primary);
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(63, 169, 245, 0.1);
+}
+
+.formInput.error,
+.formSelect.error {
+  border-color: #dc3545;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.errorText {
+  display: block;
+  font-size: 0.875rem;
+  color: #dc3545;
+  margin-top: var(--spacing-xs);
+}
+
+.submitBtn {
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 16px;
+  margin-top: var(--spacing-md);
+}
+
+.formNote {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+/* Success Message */
+.successMessage {
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  text-align: center;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-secondary);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 auto var(--spacing-lg);
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.successMessage h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.successMessage p {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+  .form {
+    padding: var(--spacing-lg);
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+  }
+}

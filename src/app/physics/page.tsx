@@ -1,13 +1,21 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
+import Modal from '@/components/Modal/Modal'
+import ContactForm from '@/components/ContactForm/ContactForm'
 import { physicsCourse } from '@/data/courses'
 import styles from './physics.module.css'
 
-export const metadata = {
-  title: 'Курсы повышения квалификации для учителей физики — КПК',
-  description: 'Олимпиадная подготовка, ЕГЭ, углубленное преподавание. Онлайн-формат, 24 ак.часа.',
-}
-
 export default function PhysicsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedModule, setSelectedModule] = useState('')
+
+  const handleEnroll = (moduleTitle: string) => {
+    setSelectedModule(moduleTitle)
+    setIsModalOpen(true)
+  }
+
   return (
     <>
       {/* HERO */}
@@ -75,7 +83,12 @@ export default function PhysicsPage() {
 
                 <div className={styles.ctaBlock}>
                   <p>Готовы пройти этот модуль?</p>
-                  <button className="btn btn--primary">Записаться на модуль</button>
+                  <button 
+                    className="btn btn--primary"
+                    onClick={() => handleEnroll(module.title)}
+                  >
+                    Записаться на модуль
+                  </button>
                 </div>
               </div>
             </div>
@@ -136,9 +149,19 @@ export default function PhysicsPage() {
           <p className={styles.ctaText}>
             Выберите удобный модуль и пройдите повышение квалификации в комфортном темпе
           </p>
-          <button className="btn btn--primary btn--large">Записаться на курс</button>
+          <button 
+            className="btn btn--primary btn--large"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Записаться на курс
+          </button>
         </div>
       </section>
+
+      {/* МОДАЛЬНОЕ ОКНО */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ContactForm preselectedCourse={selectedModule} />
+      </Modal>
     </>
   )
 }

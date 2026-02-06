@@ -1,12 +1,14 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
+import Modal from '@/components/Modal/Modal'
+import ContactForm from '@/components/ContactForm/ContactForm'
 import styles from '../physics/physics.module.css'
 
-export const metadata = {
-  title: 'Курсы повышения квалификации для учителей математики — КПК',
-  description: 'Олимпиадная подготовка, ЕГЭ, углубленное преподавание. Онлайн-формат, 24 ак.часа.',
-}
-
 export default function MathematicsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <>
       {/* HERO */}
@@ -45,9 +47,19 @@ export default function MathematicsPage() {
           <p className={styles.ctaText}>
             Выберите удобный модуль и пройдите повышение квалификации в комфортном темпе
           </p>
-          <button className="btn btn--primary btn--large">Записаться на курс</button>
+          <button 
+            className="btn btn--primary btn--large"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Записаться на курс
+          </button>
         </div>
       </section>
+
+      {/* МОДАЛЬНОЕ ОКНО */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ContactForm preselectedCourse="mathematics" />
+      </Modal>
     </>
   )
 }

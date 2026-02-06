@@ -1,7 +1,14 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
+import Modal from '@/components/Modal/Modal'
+import ContactForm from '@/components/ContactForm/ContactForm'
 import styles from './page.module.css'
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <>
       {/* HERO */}
@@ -11,9 +18,9 @@ export default function Home() {
           <p className={styles.heroSubtitle}>
             Курсы для учителей физики, химии, биологии и математики. Онлайн-формат с поддержкой на всех этапах.
           </p>
-          <Link href="#courses" className="btn btn--primary">
+          <button className="btn btn--primary" onClick={() => setIsModalOpen(true)}>
             Выбрать курс
-          </Link>
+          </button>
           <p className={styles.heroNote}>
             Официальная программа повышения квалификации. Полностью дистанционный формат.
           </p>
@@ -177,6 +184,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* МОДАЛЬНОЕ ОКНО */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ContactForm />
+      </Modal>
     </>
   )
 }
