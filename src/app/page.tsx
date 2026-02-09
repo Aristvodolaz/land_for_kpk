@@ -141,6 +141,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="section">
+        <div className="container">
+          <h2 className="section__title">Часто задаваемые вопросы</h2>
+          <div className={styles.faqGrid}>
+            <div className={styles.faqItem}>
+              <h3 className={styles.faqQuestion}>Будут ли записи?</h3>
+              <p className={styles.faqAnswer}>
+                Да, в рамках КПК слушателям будут предоставлены записанные занятия.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3 className={styles.faqQuestion}>В какой период проходит КПК?</h3>
+              <p className={styles.faqAnswer}>
+                Курсы повышения квалификации проходят с <strong>15 февраля по 15 мая 2026 года</strong>. 
+                Длительность курсов – 72 академических часа. Курсы реализуются в модульном формате.
+              </p>
+              <div className={styles.faqDates}>
+                <div className={styles.dateItem}>
+                  <strong>15 февраля - 15 марта:</strong> подготовка к олимпиадам
+                </div>
+                <div className={styles.dateItem}>
+                  <strong>15 марта - 15 апреля:</strong> подготовка к ЕГЭ
+                </div>
+                <div className={styles.dateItem}>
+                  <strong>15 апреля - 15 мая:</strong> преподавание на углубленном уровне
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3 className={styles.faqQuestion}>Можно ли проходить один модуль из трех?</h3>
+              <p className={styles.faqAnswer}>
+                Пройти курс можно полностью или выбрать отдельные модули. 
+                За каждый модуль выдается отдельное удостоверение о повышении квалификации установленного образца.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3 className={styles.faqQuestion}>Платное ли обучение?</h3>
+              <p className={styles.faqAnswer}>
+                Нет, прохождение курсов повышения квалификации <strong>абсолютно бесплатно</strong> для учителей и педагогов.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3 className={styles.faqQuestion}>Можно ли обучаться по нескольким предметам параллельно?</h3>
+              <p className={styles.faqAnswer}>
+                Да, можно.
+              </p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <h3 className={styles.faqQuestion}>Как присоединиться к чату?</h3>
+              <p className={styles.faqAnswer}>
+                Ссылки на чаты вы можете найти в информационном письме, отправленном после регистрации.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ОТЗЫВЫ */}
       <section id="testimonials" className="section">
         <div className="container">
