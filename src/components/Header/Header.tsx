@@ -2,12 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Modal from '@/components/Modal/Modal'
-import ContactForm from '@/components/ContactForm/ContactForm'
 import styles from './Header.module.css'
 
 export default function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -78,15 +75,6 @@ export default function Header() {
                 </Link>
               </li>
             </ul>
-            <button 
-              className="btn btn--primary btn--small" 
-              onClick={() => {
-                closeMenu()
-                setIsModalOpen(true)
-              }}
-            >
-              Записаться
-            </button>
           </nav>
 
           <button
@@ -100,11 +88,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-
-      {/* МОДАЛЬНОЕ ОКНО */}
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <ContactForm />
-      </Modal>
     </header>
   )
 }

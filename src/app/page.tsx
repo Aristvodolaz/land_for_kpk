@@ -1,13 +1,7 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
-import Modal from '@/components/Modal/Modal'
-import ContactForm from '@/components/ContactForm/ContactForm'
 import styles from './page.module.css'
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <>
@@ -18,9 +12,6 @@ export default function Home() {
           <p className={styles.heroSubtitle}>
             Курсы для учителей физики, химии, биологии и математики. Онлайн-формат с поддержкой на всех этапах.
           </p>
-          <button className="btn btn--primary" onClick={() => setIsModalOpen(true)}>
-            Выбрать курс
-          </button>
           <p className={styles.heroNote}>
             Официальная программа повышения квалификации. Полностью дистанционный формат.
           </p>
@@ -35,10 +26,6 @@ export default function Home() {
             <div className={styles.featureCard}>
               <div className={styles.featureIcon}>✓</div>
               <p className={styles.featureText}>Соответствует требованиям к КПК</p>
-            </div>
-            <div className={styles.featureCard}>
-              <div className={styles.featureIcon}>✓</div>
-              <p className={styles.featureText}>Разработан с учётом реальной нагрузки педагогов</p>
             </div>
             <div className={styles.featureCard}>
               <div className={styles.featureIcon}>✓</div>
@@ -66,10 +53,6 @@ export default function Home() {
               <p>Проверенные способы упростить подготовку к занятиям</p>
             </div>
             <div className={styles.benefitItem}>
-              <h3>Рекомендации по работе с классом</h3>
-              <p>Практические советы от опытных педагогов</p>
-            </div>
-            <div className={styles.benefitItem}>
               <h3>Шаблоны и примеры заданий</h3>
               <p>Готовые материалы для разных типов уроков</p>
             </div>
@@ -90,7 +73,7 @@ export default function Home() {
               </p>
               <div className={styles.courseModules}>
                 <span className={styles.metaBadge}>3 модуля</span>
-                <span className={styles.metaBadge}>24 ак.часа</span>
+                <span className={styles.metaBadge}>72 ак.часа</span>
               </div>
             </Link>
 
@@ -102,7 +85,7 @@ export default function Home() {
               </p>
               <div className={styles.courseModules}>
                 <span className={styles.metaBadge}>3 модуля</span>
-                <span className={styles.metaBadge}>24 ак.часа</span>
+                <span className={styles.metaBadge}>72 ак.часа</span>
               </div>
             </Link>
 
@@ -114,7 +97,7 @@ export default function Home() {
               </p>
               <div className={styles.courseModules}>
                 <span className={styles.metaBadge}>3 модуля</span>
-                <span className={styles.metaBadge}>24 ак.часа</span>
+                <span className={styles.metaBadge}>72 ак.часа</span>
               </div>
             </Link>
 
@@ -126,7 +109,7 @@ export default function Home() {
               </p>
               <div className={styles.courseModules}>
                 <span className={styles.metaBadge}>3 модуля</span>
-                <span className={styles.metaBadge}>24 ак.часа</span>
+                <span className={styles.metaBadge}>72 ак.часа</span>
               </div>
             </Link>
           </div>
@@ -143,8 +126,8 @@ export default function Home() {
               <p>Учитесь дома или в школе — там, где вам удобно</p>
             </div>
             <div className={styles.formatItem}>
-              <h3>Доступ 24/7</h3>
-              <p>Материалы доступны в любое время суток</p>
+              <h3>Свободный доступ</h3>
+              <p>Материалы доступны в любое удобное время</p>
             </div>
             <div className={styles.formatItem}>
               <h3>Понятная платформа</h3>
@@ -184,11 +167,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* МОДАЛЬНОЕ ОКНО */}
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <ContactForm />
-      </Modal>
     </>
   )
 }

@@ -1,20 +1,8 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
-import Modal from '@/components/Modal/Modal'
-import ContactForm from '@/components/ContactForm/ContactForm'
 import { physicsCourse } from '@/data/courses'
 import styles from './physics.module.css'
 
 export default function PhysicsPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedModule, setSelectedModule] = useState('')
-
-  const handleEnroll = (moduleTitle: string) => {
-    setSelectedModule(moduleTitle)
-    setIsModalOpen(true)
-  }
 
   return (
     <>
@@ -28,7 +16,7 @@ export default function PhysicsPage() {
           <p className={styles.heroSubtitle}>{physicsCourse.description}</p>
           <div className={styles.heroMeta}>
             <span className={styles.metaItem}>📚 3 модуля</span>
-            <span className={styles.metaItem}>⏱️ 24 ак.часа каждый</span>
+            <span className={styles.metaItem}>⏱️ 72 ак.часа</span>
             <span className={styles.metaItem}>💻 Онлайн-формат</span>
             <span className={styles.metaItem}>📜 Удостоверение</span>
           </div>
@@ -78,41 +66,11 @@ export default function PhysicsPage() {
                   <p className={styles.audienceText}>{module.audience}</p>
                 </div>
 
-                <div className={styles.ctaBlock}>
-                  <p>Готовы пройти этот модуль?</p>
-                  <button 
-                    className="btn btn--primary"
-                    onClick={() => handleEnroll(module.title)}
-                  >
-                    Записаться на модуль
-                  </button>
-                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
-
-      {/* ФИНАЛЬНЫЙ CTA */}
-      <section className={`section ${styles.finalCta}`}>
-        <div className="container">
-          <h2 className="section__title">Готовы начать обучение?</h2>
-          <p className={styles.ctaText}>
-            Выберите удобный модуль и пройдите повышение квалификации в комфортном темпе
-          </p>
-          <button 
-            className="btn btn--primary btn--large"
-            onClick={() => setIsModalOpen(true)}
-          >
-            Записаться на курс
-          </button>
-        </div>
-      </section>
-
-      {/* МОДАЛЬНОЕ ОКНО */}
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <ContactForm preselectedCourse={selectedModule} />
-      </Modal>
     </>
   )
 }

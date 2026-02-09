@@ -29,7 +29,8 @@ export default function Footer() {
           <div className={styles.section}>
             <h3 className={styles.title}>Контакты</h3>
             <ul className={styles.list}>
-              <li>Телефон: <a href="tel:+73912345678">+7 (391) 234-56-78</a></li>
+              <li>Телефон: <a href="tel:+79164241224">+7 (916) 424-12-24</a></li>
+              <li>Телефон: <a href="tel:+79809702164">+7 (980) 970-21-64</a></li>
               <li>Email: <a href="mailto:info@kpk-courses.ru">info@kpk-courses.ru</a></li>
               <li><a href="https://t.me/your_channel" target="_blank" rel="noopener noreferrer">Telegram-канал</a></li>
             </ul>
