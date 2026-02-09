@@ -4,10 +4,17 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Modal from '@/components/Modal/Modal'
 import ContactForm from '@/components/ContactForm/ContactForm'
+import { mathematicsCourse } from '@/data/courses'
 import styles from '../physics/physics.module.css'
 
 export default function MathematicsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedModule, setSelectedModule] = useState('')
+
+  const handleEnroll = (moduleTitle: string) => {
+    setSelectedModule(moduleTitle)
+    setIsModalOpen(true)
+  }
 
   return (
     <>
@@ -17,10 +24,8 @@ export default function MathematicsPage() {
           <div className={styles.breadcrumbs}>
             <Link href="/">Главная</Link> / <span>Математика</span>
           </div>
-          <h1 className={styles.heroTitle}>Курсы повышения квалификации для учителей математики</h1>
-          <p className={styles.heroSubtitle}>
-            Три направления подготовки: олимпиадная работа, подготовка к ЕГЭ и углубленное преподавание математики.
-          </p>
+          <h1 className={styles.heroTitle}>{mathematicsCourse.title}</h1>
+          <p className={styles.heroSubtitle}>{mathematicsCourse.description}</p>
           <div className={styles.heroMeta}>
             <span className={styles.metaItem}>📚 3 модуля</span>
             <span className={styles.metaItem}>⏱️ 24 ак.часа каждый</span>
@@ -30,13 +35,61 @@ export default function MathematicsPage() {
         </div>
       </section>
 
-      {/* ЗАГЛУШКА */}
-      <section className="section">
+      {/* ПРОГРАММА КУРСОВ */}
+      <section id="program" className="section">
         <div className="container">
           <h2 className="section__title">Программа курсов</h2>
-          <p style={{ textAlign: 'center', fontSize: '1.125rem', color: 'var(--color-text)', opacity: 0.7 }}>
-            Полная информация о модулях будет добавлена в ближайшее время
-          </p>
+
+          {mathematicsCourse.modules.map((module) => (
+            <div key={module.number} className={styles.moduleDetailed}>
+              <div className={styles.moduleHeader}>
+                <div className={styles.moduleNumber}>Модуль {module.number}</div>
+                <h3 className={styles.moduleTitle}>{module.title}</h3>
+                <div className={styles.moduleMetaGroup}>
+                  <div className={styles.moduleHours}>{module.hours} ак.часов</div>
+                  <div className={styles.moduleDates}>{module.dates}</div>
+                </div>
+              </div>
+
+              <div className={styles.moduleContent}>
+                <div className={styles.moduleSection}>
+                  <h4>Содержание модуля:</h4>
+                  <ul>
+                    {module.content.map((item, index) => (
+                      <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                    ))}
+                  </ul>
+                </div>
+
+                <div className={styles.moduleSection}>
+                  <h4>Практические результаты:</h4>
+                  <div className={styles.resultsGrid}>
+                    {module.results.map((result, index) => (
+                      <div key={index} className={styles.resultItem}>
+                        <div className={styles.resultIcon}>✓</div>
+                        <p>{result}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={styles.moduleSection}>
+                  <h4>Для кого:</h4>
+                  <p className={styles.audienceText}>{module.audience}</p>
+                </div>
+
+                <div className={styles.ctaBlock}>
+                  <p>Готовы пройти этот модуль?</p>
+                  <button 
+                    className="btn btn--primary"
+                    onClick={() => handleEnroll(module.title)}
+                  >
+                    Записаться на модуль
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

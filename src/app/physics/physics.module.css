@@ -157,12 +157,20 @@
   min-width: 250px;
 }
 
-.moduleHours {
+.moduleMetaGroup {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.moduleHours,
+.moduleDates {
   background: rgba(255, 255, 255, 0.2);
   padding: 8px 16px;
   border-radius: var(--border-radius);
   font-size: 0.875rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .moduleContent {
@@ -205,6 +213,11 @@
   left: 0;
   color: var(--color-secondary);
   font-weight: 700;
+}
+
+.moduleSection li strong {
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .resultsGrid {

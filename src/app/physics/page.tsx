@@ -45,22 +45,19 @@ export default function PhysicsPage() {
               <div className={styles.moduleHeader}>
                 <div className={styles.moduleNumber}>Модуль {module.number}</div>
                 <h3 className={styles.moduleTitle}>{module.title}</h3>
-                <div className={styles.moduleHours}>{module.hours} академических часа</div>
+                <div className={styles.moduleMetaGroup}>
+                  <div className={styles.moduleHours}>{module.hours} ак.часов</div>
+                  <div className={styles.moduleDates}>{module.dates}</div>
+                </div>
               </div>
 
               <div className={styles.moduleContent}>
                 <div className={styles.moduleSection}>
                   <h4>Содержание модуля:</h4>
                   <ul>
-                    {module.content.map((item, index) => {
-                      const [title, ...description] = item.split(':')
-                      return (
-                        <li key={index}>
-                          <strong>{title}:</strong>
-                          {description.join(':')}
-                        </li>
-                      )
-                    })}
+                    {module.content.map((item, index) => (
+                      <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+                    ))}
                   </ul>
                 </div>
 
@@ -90,52 +87,6 @@ export default function PhysicsPage() {
                     Записаться на модуль
                   </button>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* СПИКЕРЫ */}
-      <section id="speakers" className="section">
-        <div className="container">
-          <h2 className="section__title">Спикеры курсов</h2>
-          <p className={styles.speakersIntro}>
-            Курс ведут практикующие специалисты, понимающие реальную работу школы
-          </p>
-
-          {physicsCourse.modules.map((module) => (
-            <div key={module.number} className={styles.speakerModule}>
-              <h3 className={styles.speakerModuleTitle}>
-                Модуль {module.number}: {module.title}
-              </h3>
-              
-              <div className={styles.speakersGrid}>
-                {/* Методист */}
-                <div className={styles.speakerCard}>
-                  <div className={styles.speakerPhoto}>
-                    <img src={module.methodist.photo} alt={module.methodist.name} />
-                  </div>
-                  <div className={styles.speakerInfo}>
-                    <div className={styles.speakerRole}>Методист</div>
-                    <h4 className={styles.speakerName}>{module.methodist.name}</h4>
-                    <p className={styles.speakerBio}>{module.methodist.bio}</p>
-                  </div>
-                </div>
-
-                {/* Лекторы */}
-                {module.lecturers.map((lecturer, index) => (
-                  <div key={index} className={styles.speakerCard}>
-                    <div className={styles.speakerPhoto}>
-                      <img src={lecturer.photo} alt={lecturer.name} />
-                    </div>
-                    <div className={styles.speakerInfo}>
-                      <div className={styles.speakerRole}>Приглашенный лектор</div>
-                      <h4 className={styles.speakerName}>{lecturer.name}</h4>
-                      <p className={styles.speakerBio}>{lecturer.bio}</p>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           ))}
