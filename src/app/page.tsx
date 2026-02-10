@@ -204,6 +204,172 @@ export default function Home() {
         </div>
       </section>
 
+      {/* РЕГИСТРАЦИЯ */}
+      <section id="registration" className={`section ${styles.registrationSection}`}>
+        <div className="container">
+          <h2 className="section__title">Как попасть на занятия?</h2>
+          
+          <div className={styles.registrationCta}>
+            <p className={styles.registrationText}>
+              Зарегистрируйтесь на нашей платформе или войдите в свой личный кабинет
+            </p>
+            <div className={styles.buttonGroup}>
+              <a 
+                href="https://xn--80asehdb.xn--l1afu.xn--p1ai/register/slushatel-kpk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn--primary"
+              >
+                Зарегистрироваться как слушатель КПК
+              </a>
+              <a 
+                href="https://xn--80asehdb.xn--l1afu.xn--p1ai/login" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.loginLink}
+              >
+                Войти в личный кабинет
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.instructionSteps}>
+            <div className={styles.instructionStep}>
+              <div className={styles.stepNumber}>1</div>
+              <div className={styles.stepContent}>
+                <h4>Зарегистрируйтесь на платформе</h4>
+                <p>
+                  Обязательно регистрация должна быть пройдена как <strong>Слушатель КПК</strong>, 
+                  иначе мы не сможем собрать ваши данные для выдачи удостоверения.
+                </p>
+                <p className={styles.warning}>
+                  ⚠️ Помните: пользоваться платформой можно только с компьютера через браузер <strong>Google Chrome</strong>!
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.instructionStep}>
+              <div className={styles.stepNumber}>2</div>
+              <div className={styles.stepContent}>
+                <h4>Проверьте почту</h4>
+                <p>
+                  После регистрации вам на почту придет письмо от <strong>info@matetech.ru</strong> (Информация Matetech). 
+                  В нем вы найдете логин (совпадает с адресом вашей почты) и пароль для входа на платформу.
+                </p>
+                <p className={styles.note}>💡 Письмо может попасть в папку "Спам"</p>
+              </div>
+            </div>
+
+            <div className={styles.instructionStep}>
+              <div className={styles.stepNumber}>3</div>
+              <div className={styles.stepContent}>
+                <h4>Активируйте инвайт-код</h4>
+                <p>
+                  После входа на платформу перейдите в раздел «Мой профиль» и в верхнем правом углу 
+                  найдите кнопку «Активировать инвайт». Введите код для выбранного модуля.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.instructionStep}>
+              <div className={styles.stepNumber}>4</div>
+              <div className={styles.stepContent}>
+                <h4>Заполните все данные</h4>
+                <p>
+                  Необходимо заполнить ВСЮ информацию о себе и приложить сканы требуемых документов в личном кабинете:
+                </p>
+                <ul className={styles.documentsList}>
+                  <li>Фамилия, имя, отчество (при наличии)</li>
+                  <li>E-mail адрес и телефон</li>
+                  <li>Информация об образовательном учреждении</li>
+                  <li>Дата рождения и гражданство</li>
+                  <li>Номер СНИЛС + фамилия указанная в СНИЛС</li>
+                  <li>Серия и номер диплома + скан диплома</li>
+                  <li>Свидетельство о браке (при смене фамилии в дипломе)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.inviteCodesSection}>
+            <h3 className={styles.inviteTitle}>Инвайт-коды для активации курсов</h3>
+            <div className={styles.inviteGrid}>
+              <div className={styles.inviteBlock}>
+                <h4>⚛️ Физика</h4>
+                <div className={styles.inviteList}>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к олимпиадам:</span>
+                    <code className={styles.inviteCode}>7z94T0gZ</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к ЕГЭ:</span>
+                    <code className={styles.inviteCode}>P1shWCuq</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Углубленное преподавание:</span>
+                    <code className={styles.inviteCode}>DTdnl4vW</code>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.inviteBlock}>
+                <h4>🧪 Химия</h4>
+                <div className={styles.inviteList}>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к олимпиадам:</span>
+                    <code className={styles.inviteCode}>83Rn2f4k</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к ЕГЭ:</span>
+                    <code className={styles.inviteCode}>sJhwO5lg</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Углубленное преподавание:</span>
+                    <code className={styles.inviteCode}>IfnjROFu</code>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.inviteBlock}>
+                <h4>🧬 Биология</h4>
+                <div className={styles.inviteList}>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к олимпиадам:</span>
+                    <code className={styles.inviteCode}>uvSrj4VT</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к ЕГЭ:</span>
+                    <code className={styles.inviteCode}>gqXHes0J</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Углубленное преподавание:</span>
+                    <code className={styles.inviteCode}>95zsDTK1</code>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.inviteBlock}>
+                <h4>📐 Математика</h4>
+                <div className={styles.inviteList}>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к олимпиадам:</span>
+                    <code className={styles.inviteCode}>3T7terwV</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Подготовка к ЕГЭ:</span>
+                    <code className={styles.inviteCode}>hjA1YBJZ</code>
+                  </div>
+                  <div className={styles.inviteItem}>
+                    <span className={styles.inviteLabel}>Углубленное преподавание:</span>
+                    <code className={styles.inviteCode}>58l1skMc</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ОТЗЫВЫ */}
       <section id="testimonials" className="section">
         <div className="container">
