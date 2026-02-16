@@ -676,6 +676,57 @@
   transform: scale(1.05);
 }
 
+/* ORGANIZERS */
+.organizersSection {
+  background: linear-gradient(135deg, rgba(63, 169, 245, 0.03) 0%, rgba(255, 99, 44, 0.03) 100%);
+}
+
+.organizersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.organizerCard {
+  background: linear-gradient(135deg, #ffffff 0%, #fdfcfb 100%);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.organizerCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.organizerLogo {
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.organizerLogo img {
+  max-width: 100%;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.organizerName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
 @media (max-width: 768px) {
   .coursesGrid,
   .benefitsGrid,

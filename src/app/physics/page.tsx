@@ -71,6 +71,22 @@ export default function PhysicsPage() {
           ))}
         </div>
       </section>
+
+      {/* СПИКЕРЫ */}
+      <section id="speakers" className="section">
+        <div className="container">
+          <h2 className="section__title">Спикеры курса</h2>
+          <div className={styles.speakersGrid}>
+            {physicsCourse.speakers.map((speaker, index) => (
+              <div key={index} className={styles.speakerCard}>
+                <h3 className={styles.speakerName}>{speaker.name}</h3>
+                <p className={styles.speakerRole}>{speaker.role}</p>
+                <p className={styles.speakerBio}>{speaker.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }

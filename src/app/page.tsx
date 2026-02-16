@@ -39,6 +39,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* ПРАКТИЧЕСКАЯ ПОЛЬЗА */}
       <section id="benefits" className="section">
         <div className="container">
@@ -370,6 +371,8 @@ export default function Home() {
         </div>
       </section>
 
+
+
       {/* ОТЗЫВЫ */}
       <section id="testimonials" className="section">
         <div className="container">
@@ -396,6 +399,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+            {/* ОРГАНИЗАТОРЫ */}
+            <section id="organizers" className={`section ${styles.organizersSection}`}>
+        <div className="container">
+          <h2 className="section__title">Организаторы курса</h2>
+          <div className={styles.organizersGrid}>
+            <div className={styles.organizerCard}>
+              <div className={styles.organizerLogo}>
+                <img src="/logo-mccme.png" alt="МЦНМО" />
+              </div>
+              <h3 className={styles.organizerName}>
+                Московский центр непрерывного математического образования
+              </h3>
+            </div>
+            <div className={styles.organizerCard}>
+              <div className={styles.organizerLogo}>
+                <img src="/logo-vektor.svg" alt="ЦПМ" />
+              </div>
+              <h3 className={styles.organizerName}>
+                ГАОУ ДПО Центр Педагогического Мастерства
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </>
+
+    
   )
 }
